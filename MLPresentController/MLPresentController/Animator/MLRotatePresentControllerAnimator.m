@@ -67,7 +67,7 @@ static NSInteger const kDimmingViewTag = 1024;
             
             dimmingView.alpha = 0.5;
         } completion:^(BOOL finished) {
-            NSLog(@"animator present end");
+//            NSLog(@"animator present end");
             presentedView.transform = CGAffineTransformIdentity;
             
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
@@ -82,7 +82,7 @@ static NSInteger const kDimmingViewTag = 1024;
             
             dimmingView.alpha = 0.01;
         } completion: ^(BOOL finished) {
-            NSLog(@"animator dismiss end");
+//            NSLog(@"animator dismiss end");
             if (![transitionContext transitionWasCancelled]) {
                 [dimmingView removeFromSuperview];
                 [presentedView removeFromSuperview];

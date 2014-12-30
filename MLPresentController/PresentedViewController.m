@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIButton *button;
 
+@property (nonatomic, strong) UILabel *label;
+
 @end
 
 @implementation PresentedViewController
@@ -23,6 +25,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithRed:0.150 green:0.595 blue:0.583 alpha:1.000];
     [self.view addSubview:self.button];
+    [self.view addSubview:self.label];
     
     [self ml_validatePanGesturePresent];
 }
@@ -46,11 +49,27 @@
     return _button;
 }
 
+- (UILabel *)label
+{
+    if (!_label) {
+        UILabel* label = [[UILabel alloc]init];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:14.0f];
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        label.text = [NSString stringWithFormat:@"Pan from %@ to dismiss",self.isLocateLeft?@"left":@"right"];
+        
+        _label = label;
+    }
+    return _label;
+}
 #pragma mark - layout
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     
+    self.label.frame = CGRectMake(0, 30, self.view.frameWidth, 60.0f);
     self.button.frame = [self.view midFrameWithHeight:30 width:120];
 }
 
