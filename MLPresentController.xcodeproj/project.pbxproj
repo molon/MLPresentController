@@ -14,6 +14,7 @@
 		36537B471A529DB80006DBE0 /* UIViewController+MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */; };
 		36537B4A1A529F390006DBE0 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B491A529F390006DBE0 /* PresentedViewController.m */; };
 		36537B4D1A529F670006DBE0 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B4C1A529F670006DBE0 /* UIView+Convenience.m */; };
+		36537B4F1A52D95B0006DBE0 /* MLPresentController.gif in Resources */ = {isa = PBXBuildFile; fileRef = 36537B4E1A52D95B0006DBE0 /* MLPresentController.gif */; };
 		36704ED31A529AEE00F49044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED21A529AEE00F49044 /* main.m */; };
 		36704ED61A529AEE00F49044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED51A529AEE00F49044 /* AppDelegate.m */; };
 		36704ED91A529AEE00F49044 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED81A529AEE00F49044 /* ViewController.m */; };
@@ -48,6 +49,7 @@
 		36537B491A529F390006DBE0 /* PresentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedViewController.m; sourceTree = "<group>"; };
 		36537B4B1A529F670006DBE0 /* UIView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenience.h"; sourceTree = "<group>"; };
 		36537B4C1A529F670006DBE0 /* UIView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenience.m"; sourceTree = "<group>"; };
+		36537B4E1A52D95B0006DBE0 /* MLPresentController.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = MLPresentController.gif; sourceTree = "<group>"; };
 		36704ECD1A529AEE00F49044 /* MLPresentController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLPresentController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36704ED11A529AEE00F49044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36704ED21A529AEE00F49044 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		36704EC41A529AEE00F49044 = {
 			isa = PBXGroup;
 			children = (
+				36537B4E1A52D95B0006DBE0 /* MLPresentController.gif */,
 				36704ECF1A529AEE00F49044 /* MLPresentController */,
 				36704EE91A529AEE00F49044 /* MLPresentControllerTests */,
 				36704ECE1A529AEE00F49044 /* Products */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36704EE11A529AEE00F49044 /* LaunchScreen.xib in Resources */,
+				36537B4F1A52D95B0006DBE0 /* MLPresentController.gif in Resources */,
 				36704EDE1A529AEE00F49044 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
