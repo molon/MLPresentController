@@ -58,7 +58,7 @@
         label.font = [UIFont systemFontOfSize:14.0f];
         label.textAlignment = NSTextAlignmentCenter;
         
-        label.text = [NSString stringWithFormat:@"Pan from %@ to dismiss",self.isLocateLeft?@"left":@"right"];
+        label.text = [NSString stringWithFormat:@"Pan from %@ to dismiss",!self.isLocateLeft?@"left":@"right"];
         
         _label = label;
     }
