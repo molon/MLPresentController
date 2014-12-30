@@ -393,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = MLPresentController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -406,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = MLPresentController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

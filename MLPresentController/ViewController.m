@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UIButton *leftButtton;
 @property (nonatomic, strong) UIButton *rightButton;
+@property (nonatomic, strong) UILabel *label;
 
 @end
 
@@ -26,6 +27,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"MLPresentController";
     
+    [self.view addSubview:self.label];
     [self.view addSubview:self.leftButtton];
     [self.view addSubview:self.rightButton];
     
@@ -64,10 +66,28 @@
     return _rightButton;
 }
 
+- (UILabel *)label
+{
+    if (!_label) {
+        UILabel* label = [[UILabel alloc]init];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont systemFontOfSize:14.0f];
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        label.text = @"Pan from left or right to present";
+        
+        _label = label;
+    }
+    return _label;
+}
+
 #pragma mark - layout
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    
+    self.label.frame = CGRectMake(0, 84, self.view.frameWidth, 60);
     
 #define kButtonWidth 80.0f
 #define kButtonHeight 30.0f
@@ -88,6 +108,7 @@
     PresentedViewController *vc = [PresentedViewController new];
     vc.isLocateLeft = isLocateLeft;
     
+    //You can custom your own animator like MLRotatePresentControllerAnimator
     MLRotatePresentControllerAnimator *animator = [MLRotatePresentControllerAnimator new];
     animator.isReverse = !isLocateLeft;
     
