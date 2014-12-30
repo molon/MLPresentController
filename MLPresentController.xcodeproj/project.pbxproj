@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36537B431A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B391A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m */; };
+		36537B441A529DB80006DBE0 /* MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B3C1A529DB80006DBE0 /* MLPresentController.m */; };
+		36537B451A529DB80006DBE0 /* MLPresentControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B3E1A529DB80006DBE0 /* MLPresentControllerAnimator.m */; };
+		36537B461A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B401A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m */; };
+		36537B471A529DB80006DBE0 /* UIViewController+MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */; };
+		36537B4A1A529F390006DBE0 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B491A529F390006DBE0 /* PresentedViewController.m */; };
+		36537B4D1A529F670006DBE0 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B4C1A529F670006DBE0 /* UIView+Convenience.m */; };
 		36704ED31A529AEE00F49044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED21A529AEE00F49044 /* main.m */; };
 		36704ED61A529AEE00F49044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED51A529AEE00F49044 /* AppDelegate.m */; };
 		36704ED91A529AEE00F49044 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED81A529AEE00F49044 /* ViewController.m */; };
-		36704EDC1A529AEE00F49044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36704EDA1A529AEE00F49044 /* Main.storyboard */; };
 		36704EDE1A529AEE00F49044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36704EDD1A529AEE00F49044 /* Images.xcassets */; };
 		36704EE11A529AEE00F49044 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36704EDF1A529AEE00F49044 /* LaunchScreen.xib */; };
 		36704EED1A529AEE00F49044 /* MLPresentControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704EEC1A529AEE00F49044 /* MLPresentControllerTests.m */; };
@@ -27,6 +33,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36537B381A529DB80006DBE0 /* MLRotatePresentControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRotatePresentControllerAnimator.h; sourceTree = "<group>"; };
+		36537B391A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRotatePresentControllerAnimator.m; sourceTree = "<group>"; };
+		36537B3A1A529DB80006DBE0 /* MLPresentController+PrivatePropertyAndMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLPresentController+PrivatePropertyAndMethod.h"; sourceTree = "<group>"; };
+		36537B3B1A529DB80006DBE0 /* MLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentController.h; sourceTree = "<group>"; };
+		36537B3C1A529DB80006DBE0 /* MLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentController.m; sourceTree = "<group>"; };
+		36537B3D1A529DB80006DBE0 /* MLPresentControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentControllerAnimator.h; sourceTree = "<group>"; };
+		36537B3E1A529DB80006DBE0 /* MLPresentControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentControllerAnimator.m; sourceTree = "<group>"; };
+		36537B3F1A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentControllerInteractiveTransition.h; sourceTree = "<group>"; };
+		36537B401A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentControllerInteractiveTransition.m; sourceTree = "<group>"; };
+		36537B411A529DB80006DBE0 /* UIViewController+MLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MLPresentController.h"; sourceTree = "<group>"; };
+		36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MLPresentController.m"; sourceTree = "<group>"; };
+		36537B481A529F390006DBE0 /* PresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewController.h; sourceTree = "<group>"; };
+		36537B491A529F390006DBE0 /* PresentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedViewController.m; sourceTree = "<group>"; };
+		36537B4B1A529F670006DBE0 /* UIView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenience.h"; sourceTree = "<group>"; };
+		36537B4C1A529F670006DBE0 /* UIView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenience.m"; sourceTree = "<group>"; };
 		36704ECD1A529AEE00F49044 /* MLPresentController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLPresentController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36704ED11A529AEE00F49044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36704ED21A529AEE00F49044 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,7 +55,6 @@
 		36704ED51A529AEE00F49044 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		36704ED71A529AEE00F49044 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		36704ED81A529AEE00F49044 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		36704EDB1A529AEE00F49044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36704EDD1A529AEE00F49044 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		36704EE01A529AEE00F49044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		36704EE61A529AEE00F49044 /* MLPresentControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLPresentControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +80,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36537B361A529DB80006DBE0 /* MLPresentController */ = {
+			isa = PBXGroup;
+			children = (
+				36537B4B1A529F670006DBE0 /* UIView+Convenience.h */,
+				36537B4C1A529F670006DBE0 /* UIView+Convenience.m */,
+				36537B371A529DB80006DBE0 /* Animator */,
+				36537B3A1A529DB80006DBE0 /* MLPresentController+PrivatePropertyAndMethod.h */,
+				36537B3B1A529DB80006DBE0 /* MLPresentController.h */,
+				36537B3C1A529DB80006DBE0 /* MLPresentController.m */,
+				36537B3D1A529DB80006DBE0 /* MLPresentControllerAnimator.h */,
+				36537B3E1A529DB80006DBE0 /* MLPresentControllerAnimator.m */,
+				36537B3F1A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.h */,
+				36537B401A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m */,
+				36537B411A529DB80006DBE0 /* UIViewController+MLPresentController.h */,
+				36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */,
+			);
+			path = MLPresentController;
+			sourceTree = "<group>";
+		};
+		36537B371A529DB80006DBE0 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				36537B381A529DB80006DBE0 /* MLRotatePresentControllerAnimator.h */,
+				36537B391A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
 		36704EC41A529AEE00F49044 = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +129,13 @@
 		36704ECF1A529AEE00F49044 /* MLPresentController */ = {
 			isa = PBXGroup;
 			children = (
+				36537B361A529DB80006DBE0 /* MLPresentController */,
+				36537B481A529F390006DBE0 /* PresentedViewController.h */,
+				36537B491A529F390006DBE0 /* PresentedViewController.m */,
 				36704ED41A529AEE00F49044 /* AppDelegate.h */,
 				36704ED51A529AEE00F49044 /* AppDelegate.m */,
 				36704ED71A529AEE00F49044 /* ViewController.h */,
 				36704ED81A529AEE00F49044 /* ViewController.m */,
-				36704EDA1A529AEE00F49044 /* Main.storyboard */,
 				36704EDD1A529AEE00F49044 /* Images.xcassets */,
 				36704EDF1A529AEE00F49044 /* LaunchScreen.xib */,
 				36704ED01A529AEE00F49044 /* Supporting Files */,
@@ -199,7 +249,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36704EDC1A529AEE00F49044 /* Main.storyboard in Resources */,
 				36704EE11A529AEE00F49044 /* LaunchScreen.xib in Resources */,
 				36704EDE1A529AEE00F49044 /* Images.xcassets in Resources */,
 			);
@@ -219,7 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36537B441A529DB80006DBE0 /* MLPresentController.m in Sources */,
+				36537B4A1A529F390006DBE0 /* PresentedViewController.m in Sources */,
+				36537B471A529DB80006DBE0 /* UIViewController+MLPresentController.m in Sources */,
+				36537B451A529DB80006DBE0 /* MLPresentControllerAnimator.m in Sources */,
 				36704ED91A529AEE00F49044 /* ViewController.m in Sources */,
+				36537B461A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m in Sources */,
+				36537B4D1A529F670006DBE0 /* UIView+Convenience.m in Sources */,
+				36537B431A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m in Sources */,
 				36704ED61A529AEE00F49044 /* AppDelegate.m in Sources */,
 				36704ED31A529AEE00F49044 /* main.m in Sources */,
 			);
@@ -244,14 +300,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		36704EDA1A529AEE00F49044 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36704EDB1A529AEE00F49044 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		36704EDF1A529AEE00F49044 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,9 +393,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = MLPresentController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -355,9 +406,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = MLPresentController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -414,6 +468,7 @@
 				36704EF21A529AEE00F49044 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36704EF31A529AEE00F49044 /* Build configuration list for PBXNativeTarget "MLPresentControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +477,7 @@
 				36704EF51A529AEE00F49044 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

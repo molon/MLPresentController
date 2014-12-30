@@ -1,0 +1,109 @@
+//
+//  PresentedViewController.m
+//  MLPresentController
+//
+//  Created by molon on 14/12/30.
+//  Copyright (c) 2014年 molon. All rights reserved.
+//
+
+#import "PresentedViewController.h"
+#import "MLPresentController.h"
+#import "UIView+Convenience.h"
+
+@interface PresentedViewController ()<MLPresentControllerPanDedelagte>
+
+@property (nonatomic, strong) UIButton *button;
+
+@end
+
+@implementation PresentedViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor colorWithRed:0.150 green:0.595 blue:0.583 alpha:1.000];
+    [self.view addSubview:self.button];
+    
+    [self ml_validatePanGesturePresent];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - getter
+- (UIButton *)button
+{
+    if (!_button) {
+        UIButton *button = [[UIButton alloc]init];
+        [button setTitle:[NSString stringWithFormat:@"%@ dismiss",self.isLocateLeft?@"left":@"right"] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        
+        _button = button;
+    }
+    return _button;
+}
+
+#pragma mark - layout
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.button.frame = [self.view midFrameWithHeight:30 width:120];
+}
+
+- (CGRect)ml_preferredFrameForPresentedWithContainerFrame:(CGRect)containerFrame
+{
+    CGFloat width = containerFrame.size.width;
+    CGFloat height = containerFrame.size.height;
+    
+#define kSelfWidth 200.0f
+#define kSelfHeight 300.0f
+//    return CGRectMake((width-kSelfWidth)/2, (height-kSelfHeight)/2, kSelfWidth, kSelfHeight);
+    
+    if (self.isLocateLeft) {
+        return CGRectMake(0, (height-kSelfHeight)/2, kSelfWidth, kSelfHeight);
+    }else{
+        return CGRectMake(width-kSelfWidth, (height-kSelfHeight)/2, kSelfWidth, kSelfHeight);
+    }
+}
+
+#pragma mark - event
+- (void)dismiss
+{
+    [self dismissWithInteractiving:NO];
+}
+
+- (void)dismissWithInteractiving:(BOOL)interactiving
+{
+    MLRotatePresentControllerAnimator *animator = [MLRotatePresentControllerAnimator new];
+    animator.isReverse = !self.isLocateLeft;
+    
+    [self ml_dismissViewControllerAnimated:YES animator:animator interactiving:interactiving completion:nil];
+}
+
+#pragma mark - pan dismiss
+- (BOOL)ml_panGestureBeginFromLeft
+{
+    if (self.isLocateLeft) {
+        return NO;
+    }
+    
+    [self dismissWithInteractiving:YES];
+    
+    return YES;
+}
+
+- (BOOL)ml_panGestureBeginFromRight
+{
+    if (!self.isLocateLeft) {
+        return NO;
+    }
+    
+    [self dismissWithInteractiving:YES];
+    
+    return YES;
+}
+@end
