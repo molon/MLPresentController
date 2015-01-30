@@ -1,0 +1,14 @@
+PODS:
+  - MLPresentController (1.0)
+
+DEPENDENCIES:
+  - MLPresentController (from `../`)
+
+EXTERNAL SOURCES:
+  MLPresentController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MLPresentController: b02dd2b6f200c37671317bb82e1272e8027ea21f
+
+COCOAPODS: 0.35.0
