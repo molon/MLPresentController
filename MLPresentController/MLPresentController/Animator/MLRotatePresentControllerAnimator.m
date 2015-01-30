@@ -8,7 +8,6 @@
 
 #import "MLRotatePresentControllerAnimator.h"
 #import "MLPresentController.h"
-#import "UIView+Convenience.h"
 
 static NSInteger const kDimmingViewTag = 1024;
 
@@ -65,12 +64,12 @@ static NSInteger const kDimmingViewTag = 1024;
         [containerView addSubview:presentedView];
     }
     
-    [self changeAnchorPointY:containerView.frameHeight*2/presentedView.frameHeight andAdjustPositionForView:presentedView];
+    [self changeAnchorPointY:CGRectGetHeight(containerView.frame)*2/CGRectGetHeight(presentedView.frame) andAdjustPositionForView:presentedView];
     
     CGFloat maxFeatAngle = [self maxFeatRangleForView:presentedView withFeatContainerView:containerView];
     
     if (self.isForPresent) {
-        [self moveViewWithX:self.isReverse?containerView.frameWidth/2:-containerView.frameWidth/2 forView:presentedView withMaxFeatRangle:maxFeatAngle andFeatContainerView:containerView];
+        [self moveViewWithX:self.isReverse?CGRectGetWidth(containerView.frame)/2:-CGRectGetWidth(containerView.frame)/2 forView:presentedView withMaxFeatRangle:maxFeatAngle andFeatContainerView:containerView];
         
         //sorry, spring animator is not allowed
 //        [UIView animateWithDuration:0.5f delay:0.0f usingSpringWithDamping:0.8f initialSpringVelocity:0.6f options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -90,7 +89,7 @@ static NSInteger const kDimmingViewTag = 1024;
         }];
     }else{
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            [self moveViewWithX:self.isReverse?containerView.frameWidth/2:-containerView.frameWidth/2 forView:presentedView withMaxFeatRangle:maxFeatAngle andFeatContainerView:containerView];
+            [self moveViewWithX:self.isReverse?CGRectGetWidth(containerView.frame)/2:-CGRectGetWidth(containerView.frame)/2 forView:presentedView withMaxFeatRangle:maxFeatAngle andFeatContainerView:containerView];
             
             dimmingView.alpha = 0.01;
         } completion: ^(BOOL finished) {
@@ -110,7 +109,7 @@ static NSInteger const kDimmingViewTag = 1024;
 - (void)moveViewWithX:(float)x forView:(UIView*)view withMaxFeatRangle:(CGFloat)maxFeatRangle andFeatContainerView:(UIView*)containerView
 {
     CATransform3D transform = CATransform3DIdentity;
-    transform = CATransform3DRotate(transform,maxFeatRangle*(x/(containerView.frameWidth/2)), 0, 0, 1);
+    transform = CATransform3DRotate(transform,maxFeatRangle*(x/(CGRectGetWidth(containerView.frame)/2)), 0, 0, 1);
     [view.layer setTransform:transform];
 }
 
@@ -129,7 +128,7 @@ static NSInteger const kDimmingViewTag = 1024;
 {
     NSAssert(view.layer.anchorPoint.y>1, @"anchorPoint必须大于1才OK");
     
-    CGFloat halfViewWidth = (view.frameWidth/2);
+    CGFloat halfViewWidth = (CGRectGetWidth(view.frame)/2);
     
     
     CGRect inFrame = [view convertRect:view.bounds toView:containerView];
@@ -138,14 +137,14 @@ static NSInteger const kDimmingViewTag = 1024;
     
     //判断下左右空间哪个小点。取小的空间宽度+view宽度一半
     CGFloat containerExtraWidth = halfViewWidth;
-    if (inFrame.origin.x > containerView.frameWidth-inFrame.origin.x-inFrame.size.width) {
-        containerExtraWidth += containerView.frameWidth-inFrame.origin.x-inFrame.size.width;
+    if (inFrame.origin.x > CGRectGetWidth(containerView.frame)-inFrame.origin.x-inFrame.size.width) {
+        containerExtraWidth += CGRectGetWidth(containerView.frame)-inFrame.origin.x-inFrame.size.width;
     }else{
         containerExtraWidth += inFrame.origin.x;
     }
     
     //找到角度范围
-    CGFloat r = view.frameHeight*(view.layer.anchorPoint.y-1);
+    CGFloat r = CGRectGetHeight(view.frame)*(view.layer.anchorPoint.y-1);
     //view一半的角度
     CGFloat angle1 = atan(halfViewWidth/r);
     CGFloat calcRadius = sqrt(r*r+halfViewWidth*halfViewWidth);
