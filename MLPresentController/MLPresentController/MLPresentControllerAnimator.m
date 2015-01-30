@@ -9,10 +9,10 @@
 #import "MLPresentControllerAnimator.h"
 #import "MLPresentController.h"
 #import "MLPresentController+PrivatePropertyAndMethod.h"
+//#import "MLPresentView.h"
+#import "UIView+FixIOS7BugForMLPresentController.h"
 
 static NSTimeInterval const kDefaultDuration = .25f;
-
-#define IOS_VERSION ([[[UIDevice currentDevice] systemVersion]floatValue])
 
 @implementation MLPresentControllerAnimator
 
@@ -34,17 +34,23 @@ static NSTimeInterval const kDefaultDuration = .25f;
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    // Must be implemented by inheriting class
-    [self doesNotRecognizeSelector:_cmd];
+    if (IOS_VERSION_MLPRESENTCONTROLLER<8.0) {
+        if (!self.isForPresent) {
+            UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+//            if ([toVC.view isKindOfClass:[MLPresentView class]]) {
+//                ((MLPresentView*)toVC.view).ignoreSetFrame = NO;
+//            }
+            toVC.view.ignoreSetFrame = NO;
+        }
+    }
 }
 
 - (void)animationEnded:(BOOL)transitionCompleted
 {
     [[MLPresentController sharedInstance]recoverPreStateForPresentedViewController];
     
-    //IOS8 暂时不修正此BUG，后来发现在下一次present的时候会dealloc上一次没释放的
-    if (IOS_VERSION<8.0) {
-        
+    //IOS8 暂时不需要修正此BUG，因为后来发现iOS8下在下一次present的时候会dealloc上一次没释放的
+    if (IOS_VERSION_MLPRESENTCONTROLLER<8.0) {
         //注意此修正也仅仅是在keyWindow上
         if (!transitionCompleted&&self.isForPresent) {
             UIViewController *presentedViewController = [MLPresentController sharedInstance].currentPresentedViewController;

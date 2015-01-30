@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36537B431A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B391A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m */; };
-		36537B441A529DB80006DBE0 /* MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B3C1A529DB80006DBE0 /* MLPresentController.m */; };
-		36537B451A529DB80006DBE0 /* MLPresentControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B3E1A529DB80006DBE0 /* MLPresentControllerAnimator.m */; };
-		36537B461A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B401A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m */; };
-		36537B471A529DB80006DBE0 /* UIViewController+MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */; };
+		361771901A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 361771821A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.m */; };
+		361771911A7B25B500D8F8B2 /* MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361771851A7B25B500D8F8B2 /* MLPresentController.m */; };
+		361771921A7B25B500D8F8B2 /* MLPresentControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 361771871A7B25B500D8F8B2 /* MLPresentControllerAnimator.m */; };
+		361771931A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 361771891A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.m */; };
+		361771941A7B25B500D8F8B2 /* MLPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3617718B1A7B25B500D8F8B2 /* MLPresentView.m */; };
+		361771951A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3617718D1A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.m */; };
+		361771961A7B25B500D8F8B2 /* UIViewController+MLPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3617718F1A7B25B500D8F8B2 /* UIViewController+MLPresentController.m */; };
+		361771991A7B25CF00D8F8B2 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 361771981A7B25CF00D8F8B2 /* UIView+Convenience.m */; };
+		3617719F1A7B291B00D8F8B2 /* PresentedViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3617719E1A7B291B00D8F8B2 /* PresentedViewController2.m */; };
 		36537B4A1A529F390006DBE0 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B491A529F390006DBE0 /* PresentedViewController.m */; };
-		36537B4D1A529F670006DBE0 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 36537B4C1A529F670006DBE0 /* UIView+Convenience.m */; };
 		36537B4F1A52D95B0006DBE0 /* MLPresentController.gif in Resources */ = {isa = PBXBuildFile; fileRef = 36537B4E1A52D95B0006DBE0 /* MLPresentController.gif */; };
 		36704ED31A529AEE00F49044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED21A529AEE00F49044 /* main.m */; };
 		36704ED61A529AEE00F49044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36704ED51A529AEE00F49044 /* AppDelegate.m */; };
@@ -34,21 +37,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		36537B381A529DB80006DBE0 /* MLRotatePresentControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRotatePresentControllerAnimator.h; sourceTree = "<group>"; };
-		36537B391A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRotatePresentControllerAnimator.m; sourceTree = "<group>"; };
-		36537B3A1A529DB80006DBE0 /* MLPresentController+PrivatePropertyAndMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLPresentController+PrivatePropertyAndMethod.h"; sourceTree = "<group>"; };
-		36537B3B1A529DB80006DBE0 /* MLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentController.h; sourceTree = "<group>"; };
-		36537B3C1A529DB80006DBE0 /* MLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentController.m; sourceTree = "<group>"; };
-		36537B3D1A529DB80006DBE0 /* MLPresentControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentControllerAnimator.h; sourceTree = "<group>"; };
-		36537B3E1A529DB80006DBE0 /* MLPresentControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentControllerAnimator.m; sourceTree = "<group>"; };
-		36537B3F1A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentControllerInteractiveTransition.h; sourceTree = "<group>"; };
-		36537B401A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentControllerInteractiveTransition.m; sourceTree = "<group>"; };
-		36537B411A529DB80006DBE0 /* UIViewController+MLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MLPresentController.h"; sourceTree = "<group>"; };
-		36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MLPresentController.m"; sourceTree = "<group>"; };
+		361771811A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRotatePresentControllerAnimator.h; sourceTree = "<group>"; };
+		361771821A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRotatePresentControllerAnimator.m; sourceTree = "<group>"; };
+		361771831A7B25B500D8F8B2 /* MLPresentController+PrivatePropertyAndMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLPresentController+PrivatePropertyAndMethod.h"; sourceTree = "<group>"; };
+		361771841A7B25B500D8F8B2 /* MLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentController.h; sourceTree = "<group>"; };
+		361771851A7B25B500D8F8B2 /* MLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentController.m; sourceTree = "<group>"; };
+		361771861A7B25B500D8F8B2 /* MLPresentControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentControllerAnimator.h; sourceTree = "<group>"; };
+		361771871A7B25B500D8F8B2 /* MLPresentControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentControllerAnimator.m; sourceTree = "<group>"; };
+		361771881A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentControllerInteractiveTransition.h; sourceTree = "<group>"; };
+		361771891A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentControllerInteractiveTransition.m; sourceTree = "<group>"; };
+		3617718A1A7B25B500D8F8B2 /* MLPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPresentView.h; sourceTree = "<group>"; };
+		3617718B1A7B25B500D8F8B2 /* MLPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPresentView.m; sourceTree = "<group>"; };
+		3617718C1A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FixIOS7BugForMLPresentController.h"; sourceTree = "<group>"; };
+		3617718D1A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FixIOS7BugForMLPresentController.m"; sourceTree = "<group>"; };
+		3617718E1A7B25B500D8F8B2 /* UIViewController+MLPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MLPresentController.h"; sourceTree = "<group>"; };
+		3617718F1A7B25B500D8F8B2 /* UIViewController+MLPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MLPresentController.m"; sourceTree = "<group>"; };
+		361771971A7B25CF00D8F8B2 /* UIView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenience.h"; sourceTree = "<group>"; };
+		361771981A7B25CF00D8F8B2 /* UIView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenience.m"; sourceTree = "<group>"; };
+		3617719D1A7B291B00D8F8B2 /* PresentedViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewController2.h; sourceTree = "<group>"; };
+		3617719E1A7B291B00D8F8B2 /* PresentedViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedViewController2.m; sourceTree = "<group>"; };
 		36537B481A529F390006DBE0 /* PresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewController.h; sourceTree = "<group>"; };
 		36537B491A529F390006DBE0 /* PresentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedViewController.m; sourceTree = "<group>"; };
-		36537B4B1A529F670006DBE0 /* UIView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenience.h"; sourceTree = "<group>"; };
-		36537B4C1A529F670006DBE0 /* UIView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenience.m"; sourceTree = "<group>"; };
 		36537B4E1A52D95B0006DBE0 /* MLPresentController.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = MLPresentController.gif; sourceTree = "<group>"; };
 		36704ECD1A529AEE00F49044 /* MLPresentController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLPresentController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36704ED11A529AEE00F49044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,30 +91,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		36537B361A529DB80006DBE0 /* MLPresentController */ = {
+		3617717F1A7B25B500D8F8B2 /* MLPresentController */ = {
 			isa = PBXGroup;
 			children = (
-				36537B4B1A529F670006DBE0 /* UIView+Convenience.h */,
-				36537B4C1A529F670006DBE0 /* UIView+Convenience.m */,
-				36537B371A529DB80006DBE0 /* Animator */,
-				36537B3A1A529DB80006DBE0 /* MLPresentController+PrivatePropertyAndMethod.h */,
-				36537B3B1A529DB80006DBE0 /* MLPresentController.h */,
-				36537B3C1A529DB80006DBE0 /* MLPresentController.m */,
-				36537B3D1A529DB80006DBE0 /* MLPresentControllerAnimator.h */,
-				36537B3E1A529DB80006DBE0 /* MLPresentControllerAnimator.m */,
-				36537B3F1A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.h */,
-				36537B401A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m */,
-				36537B411A529DB80006DBE0 /* UIViewController+MLPresentController.h */,
-				36537B421A529DB80006DBE0 /* UIViewController+MLPresentController.m */,
+				361771971A7B25CF00D8F8B2 /* UIView+Convenience.h */,
+				361771981A7B25CF00D8F8B2 /* UIView+Convenience.m */,
+				361771801A7B25B500D8F8B2 /* Animator */,
+				361771831A7B25B500D8F8B2 /* MLPresentController+PrivatePropertyAndMethod.h */,
+				361771841A7B25B500D8F8B2 /* MLPresentController.h */,
+				361771851A7B25B500D8F8B2 /* MLPresentController.m */,
+				361771861A7B25B500D8F8B2 /* MLPresentControllerAnimator.h */,
+				361771871A7B25B500D8F8B2 /* MLPresentControllerAnimator.m */,
+				361771881A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.h */,
+				361771891A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.m */,
+				3617718A1A7B25B500D8F8B2 /* MLPresentView.h */,
+				3617718B1A7B25B500D8F8B2 /* MLPresentView.m */,
+				3617718C1A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.h */,
+				3617718D1A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.m */,
+				3617718E1A7B25B500D8F8B2 /* UIViewController+MLPresentController.h */,
+				3617718F1A7B25B500D8F8B2 /* UIViewController+MLPresentController.m */,
 			);
 			path = MLPresentController;
 			sourceTree = "<group>";
 		};
-		36537B371A529DB80006DBE0 /* Animator */ = {
+		361771801A7B25B500D8F8B2 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
-				36537B381A529DB80006DBE0 /* MLRotatePresentControllerAnimator.h */,
-				36537B391A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m */,
+				361771811A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.h */,
+				361771821A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.m */,
 			);
 			path = Animator;
 			sourceTree = "<group>";
@@ -132,9 +145,11 @@
 		36704ECF1A529AEE00F49044 /* MLPresentController */ = {
 			isa = PBXGroup;
 			children = (
-				36537B361A529DB80006DBE0 /* MLPresentController */,
+				3617717F1A7B25B500D8F8B2 /* MLPresentController */,
 				36537B481A529F390006DBE0 /* PresentedViewController.h */,
 				36537B491A529F390006DBE0 /* PresentedViewController.m */,
+				3617719D1A7B291B00D8F8B2 /* PresentedViewController2.h */,
+				3617719E1A7B291B00D8F8B2 /* PresentedViewController2.m */,
 				36704ED41A529AEE00F49044 /* AppDelegate.h */,
 				36704ED51A529AEE00F49044 /* AppDelegate.m */,
 				36704ED71A529AEE00F49044 /* ViewController.h */,
@@ -272,14 +287,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36537B441A529DB80006DBE0 /* MLPresentController.m in Sources */,
+				3617719F1A7B291B00D8F8B2 /* PresentedViewController2.m in Sources */,
+				361771991A7B25CF00D8F8B2 /* UIView+Convenience.m in Sources */,
+				361771911A7B25B500D8F8B2 /* MLPresentController.m in Sources */,
+				361771921A7B25B500D8F8B2 /* MLPresentControllerAnimator.m in Sources */,
+				361771961A7B25B500D8F8B2 /* UIViewController+MLPresentController.m in Sources */,
+				361771941A7B25B500D8F8B2 /* MLPresentView.m in Sources */,
 				36537B4A1A529F390006DBE0 /* PresentedViewController.m in Sources */,
-				36537B471A529DB80006DBE0 /* UIViewController+MLPresentController.m in Sources */,
-				36537B451A529DB80006DBE0 /* MLPresentControllerAnimator.m in Sources */,
 				36704ED91A529AEE00F49044 /* ViewController.m in Sources */,
-				36537B461A529DB80006DBE0 /* MLPresentControllerInteractiveTransition.m in Sources */,
-				36537B4D1A529F670006DBE0 /* UIView+Convenience.m in Sources */,
-				36537B431A529DB80006DBE0 /* MLRotatePresentControllerAnimator.m in Sources */,
+				361771931A7B25B500D8F8B2 /* MLPresentControllerInteractiveTransition.m in Sources */,
+				361771951A7B25B500D8F8B2 /* UIView+FixIOS7BugForMLPresentController.m in Sources */,
+				361771901A7B25B500D8F8B2 /* MLRotatePresentControllerAnimator.m in Sources */,
 				36704ED61A529AEE00F49044 /* AppDelegate.m in Sources */,
 				36704ED31A529AEE00F49044 /* main.m in Sources */,
 			);

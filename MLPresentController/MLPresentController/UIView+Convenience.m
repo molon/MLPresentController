@@ -111,4 +111,16 @@
 {
     return [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil]lastObject];
 }
+
+
+
+- (void)simpleTransitionWithDuration:(CFTimeInterval)duration andType:(NSString*)type
+{
+    CATransition *animation = [CATransition animation];
+    animation.duration = duration;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.type = type;
+    [self.layer addAnimation:animation forKey:nil];
+}
+
 @end

@@ -35,44 +35,37 @@
 /**
  *  通常的present方法，使用MLRotatePresentControllerAnimator动画，不可为交互使用
  */
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion;
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent completion:(void (^)(void))completion;
 /**
  *  通常的present方法，使用MLRotatePresentControllerAnimator动画，但是可定义interactiving决定是否供交互使用
  */
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
 /**
  *  present方法，需要传递自定义MLPresentControllerAnimator动画对象，不可为交互使用
  */
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion;
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion;
 /**
  *  present方法，需要传递自定义MLPresentControllerAnimator动画对象，但是可定义interactiving决定是否供交互使用
  */
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
 
 
 /**
  *  通常的dismiss方法，使用MLRotatePresentControllerAnimator动画，不可为交互使用
  */
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion;
+- (void)ml_dismissViewControllerWithCompletion:(void (^)(void))completion;
 /**
  *  通常的dismiss方法，使用MLRotatePresentControllerAnimator动画，但是可定义interactiving决定是否供交互使用
  */
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
+- (void)ml_dismissViewControllerWithInteractiving:(BOOL)interactiving completion:(void (^)(void))completion;
 /**
  *  dismiss方法，需要传递自定义MLPresentControllerAnimator动画对象，不可为交互使用
  */
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion;
+- (void)ml_dismissViewControllerWithAnimator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion;
 /**
  *  dismiss方法，需要传递自定义MLPresentControllerAnimator动画对象，但是可定义interactiving决定是否供交互使用
  */
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
-
-
-/**
- *  默认返回containerView的大小(一般为屏幕大小), 这个是被present的VC需要关系并且继承修改的
- */
-- (CGRect)ml_preferredFrameForPresentedWithContainerFrame:(CGRect)containerFrame;
-
+- (void)ml_dismissViewControllerWithAnimator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion;
 
 /**
  *  对当前self.view添加pan手势，配合MLPresentControllerPanDedelagte协议可开启交互功能
@@ -83,5 +76,18 @@
  *  可对其enabled与否开关pan功能
  */
 @property (nonatomic, strong, readonly) UIPanGestureRecognizer *interactivePresentPanGestureRecognizer;
+
+
+//for override
+/**
+ *  默认返回containerView的大小(一般为屏幕大小), 这个是被present的VC需要关心并且继承修改的
+ */
+- (CGRect)ml_preferredFrameForPresentedWithContainerFrame:(CGRect)containerFrame;
+
+/**
+ *  这个是在自定义动画里，如果添加了dimmingView，添加其tap手势可以以此作为action，继承可做自定义实现，一般做dismiss处理
+ */
+- (void)didTappedDimmingViewWithGesture:(UITapGestureRecognizer*)tapGesture;
+
 
 @end

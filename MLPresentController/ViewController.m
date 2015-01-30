@@ -112,7 +112,7 @@
     MLRotatePresentControllerAnimator *animator = [MLRotatePresentControllerAnimator new];
     animator.isReverse = !isLocateLeft;
     
-    [self ml_presentViewController:vc animated:YES animator:animator interactiving:interactiving completion:nil];
+    [self ml_presentViewController:vc animator:animator interactiving:interactiving completion:nil];
 }
 
 - (void)leftPressed

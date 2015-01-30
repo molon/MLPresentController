@@ -9,14 +9,15 @@
 #import "MLPresentController.h"
 #import "MLRotatePresentControllerAnimator.h"
 #import "MLPresentControllerInteractiveTransition.h"
+#import "UIView+FixIOS7BugForMLPresentController.h"
 
 @interface MLPresentController()
 
 @property (nonatomic, assign) BOOL isInteractiving;
 @property (nonatomic, strong) MLPresentControllerInteractiveTransition *interactiveTransition;
 
-
 @property (nonatomic, weak) UIViewController *currentPresentedViewController;
+
 @property (nonatomic, weak) MLPresentControllerAnimator *animator;
 @property (nonatomic, weak) id<UIViewControllerTransitioningDelegate> recordTransitioningDelegate;
 @property (nonatomic, assign) UIModalPresentationStyle recordModalPresentationStyle;
@@ -24,6 +25,11 @@
 
 
 - (void)recoverPreStateForPresentedViewController;
+
+
+//这个玩意只是为了修正下 在custom vc A上再次present custom vc B后，B dismiss会引起A的frame变化为全屏的BUG.
+@property (nonatomic, weak) UIViewController *currentPresentingViewController;
+@property (nonatomic, assign) UIModalPresentationStyle recordModalPresentationStyleOfPresenting;
 
 @end
 
@@ -44,11 +50,20 @@
     self.currentPresentedViewController.modalPresentationStyle = self.recordModalPresentationStyle;
     self.currentPresentedViewController.transitioningDelegate = self.recordTransitioningDelegate;
     
+    if (IOS_VERSION_MLPRESENTCONTROLLER<8.0f&&self.currentPresentingViewController) {
+        self.currentPresentingViewController.modalPresentationStyle = self.recordModalPresentationStyleOfPresenting;
+        
+//        DLOG(@"recover %@",self.currentPresentingViewController);
+    }
+    
     self.recordTransitioningDelegate = nil;
     self.recordModalPresentationStyle = UIModalPresentationFullScreen;
+    self.recordModalPresentationStyleOfPresenting = UIModalPresentationFullScreen;
     self.isInteractiving = NO;
     self.animator = nil;
     self.currentPanDirection = MLPresentControllerPanDirectionFromLeft;
+    
+    self.currentPresentingViewController = nil;
 }
 
 #pragma mark - delegate

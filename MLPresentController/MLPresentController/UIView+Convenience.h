@@ -30,4 +30,7 @@
 + (UINib *)nib;
 + (instancetype)instanceFromNib;
 
+
+- (void)simpleTransitionWithDuration:(CFTimeInterval)duration andType:(NSString*)type;
+
 @end

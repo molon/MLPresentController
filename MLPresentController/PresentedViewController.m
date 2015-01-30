@@ -9,6 +9,7 @@
 #import "PresentedViewController.h"
 #import "MLPresentController.h"
 #import "UIView+Convenience.h"
+#import "PresentedViewController2.h"
 
 @interface PresentedViewController ()<MLPresentControllerPanDedelagte>
 
@@ -40,9 +41,9 @@
 {
     if (!_button) {
         UIButton *button = [[UIButton alloc]init];
-        [button setTitle:[NSString stringWithFormat:@"%@ dismiss",self.isLocateLeft?@"left":@"right"] forState:UIControlStateNormal];
+        [button setTitle:[NSString stringWithFormat:@"present vc2"] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(presentVC2) forControlEvents:UIControlEventTouchUpInside];
         
         _button = button;
     }
@@ -90,9 +91,10 @@
 }
 
 #pragma mark - event
-- (void)dismiss
+- (void)presentVC2
 {
-    [self dismissWithInteractiving:NO];
+    PresentedViewController2 *vc = [PresentedViewController2 new];
+    [self ml_presentViewController:vc completion:nil];
 }
 
 - (void)dismissWithInteractiving:(BOOL)interactiving
@@ -100,9 +102,13 @@
     MLRotatePresentControllerAnimator *animator = [MLRotatePresentControllerAnimator new];
     animator.isReverse = !self.isLocateLeft;
     
-    [self ml_dismissViewControllerAnimated:YES animator:animator interactiving:interactiving completion:nil];
+    [self ml_dismissViewControllerWithAnimator:animator interactiving:interactiving completion:nil];
 }
 
+- (void)didTappedDimmingViewWithGesture:(UITapGestureRecognizer *)tapGesture
+{
+    [self dismissWithInteractiving:NO];
+}
 #pragma mark - pan dismiss
 - (BOOL)ml_panGestureBeginFromLeft
 {

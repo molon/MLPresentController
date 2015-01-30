@@ -16,6 +16,7 @@
 @property (nonatomic, strong) MLPresentControllerInteractiveTransition *interactiveTransition;
 
 @property (nonatomic, weak) UIViewController *currentPresentedViewController;
+
 @property (nonatomic, weak) MLPresentControllerAnimator *animator;
 @property (nonatomic, weak) id<UIViewControllerTransitioningDelegate> recordTransitioningDelegate;
 @property (nonatomic, assign) UIModalPresentationStyle recordModalPresentationStyle;
@@ -23,5 +24,8 @@
 
 - (void)recoverPreStateForPresentedViewController;
 
+//下面三个是为了解决iOS7 BUG而生的，不用太关注
+@property (nonatomic, weak) UIViewController *currentPresentingViewController;
+@property (nonatomic, assign) UIModalPresentationStyle recordModalPresentationStyleOfPresenting;
 
 @end

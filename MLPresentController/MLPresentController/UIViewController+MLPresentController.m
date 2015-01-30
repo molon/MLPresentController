@@ -12,6 +12,7 @@
 #import "MLPresentControllerInteractiveTransition.h"
 #import "MLPresentController+PrivatePropertyAndMethod.h"
 #import <objc/runtime.h>
+#import "UIView+FixIOS7BugForMLPresentController.h"
 
 NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPresentController.kInteractivePresentPanGestureRecognizerKey";
 
@@ -23,27 +24,25 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
 
 @implementation UIViewController (MLRotatePresentController)
 
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent completion:(void (^)(void))completion
 {
-    [self ml_presentViewController:viewControllerToPresent animated:flag interactiving:NO completion:completion];
+    [self ml_presentViewController:viewControllerToPresent interactiving:NO completion:completion];
 }
 
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag interactiving:(BOOL)interactiving completion:(void (^)(void))completion
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent interactiving:(BOOL)interactiving completion:(void (^)(void))completion
 {
-    MLRotatePresentControllerAnimator *animator = [MLRotatePresentControllerAnimator new];
-    [self ml_presentViewController:viewControllerToPresent animated:flag animator:animator interactiving:interactiving completion:completion];
+    [self ml_presentViewController:viewControllerToPresent animator:nil interactiving:interactiving completion:completion];
 }
 
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion
 {
-    [self ml_presentViewController:viewControllerToPresent animated:flag animator:animator interactiving:NO completion:completion];
+    [self ml_presentViewController:viewControllerToPresent animator:animator interactiving:NO completion:completion];
 }
 
-- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion
+- (void)ml_presentViewController:(UIViewController *)viewControllerToPresent animator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion
 {
-    if (!flag) {
-        [self presentViewController:viewControllerToPresent animated:flag completion:completion];
-        return;
+    if (!animator) {
+        animator = [MLRotatePresentControllerAnimator new];
     }
     
     animator.isForInteractiving = interactiving;
@@ -57,34 +56,31 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
     
     viewControllerToPresent.transitioningDelegate = pc;
     
-    //show fromVC view
     viewControllerToPresent.modalPresentationStyle = UIModalPresentationCustom;
     
-    [self presentViewController:viewControllerToPresent animated:flag completion:completion];
+    [self presentViewController:viewControllerToPresent animated:YES completion:completion];
 }
 
 
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+- (void)ml_dismissViewControllerWithCompletion:(void (^)(void))completion
 {
-    [self ml_dismissViewControllerAnimated:flag interactiving:NO completion:completion];
+    [self ml_dismissViewControllerWithInteractiving:NO completion:completion];
 }
 
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag interactiving:(BOOL)interactiving completion:(void (^)(void))completion
+- (void)ml_dismissViewControllerWithInteractiving:(BOOL)interactiving completion:(void (^)(void))completion
 {
-    MLRotatePresentControllerAnimator *animator = [MLRotatePresentControllerAnimator new];
-    [self ml_dismissViewControllerAnimated:flag animator:animator interactiving:interactiving completion:completion];
+    [self ml_dismissViewControllerWithAnimator:nil interactiving:interactiving completion:completion];
 }
 
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion
+- (void)ml_dismissViewControllerWithAnimator:(MLPresentControllerAnimator*)animator completion:(void (^)(void))completion
 {
-    [self ml_dismissViewControllerAnimated:flag animator:animator interactiving:NO completion:completion];
+    [self ml_dismissViewControllerWithAnimator:animator interactiving:NO completion:completion];
 }
 
-- (void)ml_dismissViewControllerAnimated:(BOOL)flag animator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion
+- (void)ml_dismissViewControllerWithAnimator:(MLPresentControllerAnimator*)animator interactiving:(BOOL)interactiving completion:(void (^)(void))completion
 {
-    if (!flag) {
-        [self dismissViewControllerAnimated:flag completion:completion];
-        return;
+    if (!animator) {
+        animator = [MLRotatePresentControllerAnimator new];
     }
     
     //找到presented vc
@@ -94,7 +90,7 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
     }else if (self.presentedViewController) {
         viewControllerToPresent = self.presentedViewController;
     }else{
-        [self dismissViewControllerAnimated:flag completion:completion];
+        [self dismissViewControllerAnimated:YES completion:completion];
         return;
     }
     
@@ -107,11 +103,22 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
     pc.recordModalPresentationStyle = viewControllerToPresent.modalPresentationStyle;
     
     viewControllerToPresent.transitioningDelegate = pc;
-    
-    //show fromVC view
     viewControllerToPresent.modalPresentationStyle = UIModalPresentationCustom;
+
+    //这里在iOS7下需要设置为custom
+    if (IOS_VERSION_MLPRESENTCONTROLLER<8.0) {
+        pc.currentPresentingViewController = viewControllerToPresent.presentingViewController;
+        
+        pc.recordModalPresentationStyleOfPresenting = viewControllerToPresent.presentingViewController.modalPresentationStyle;
+        pc.currentPresentingViewController.modalPresentationStyle = UIModalPresentationCustom;
+        
+//        if ([pc.currentPresentingViewController.view isKindOfClass:[MLPresentView class]]) {
+//            ((MLPresentView*)pc.currentPresentingViewController.view).ignoreSetFrame = YES;
+//        }
+        pc.currentPresentingViewController.view.ignoreSetFrame = YES;
+    }
     
-    [self dismissViewControllerAnimated:flag completion:completion];
+    [viewControllerToPresent dismissViewControllerAnimated:YES completion:completion];
 }
 
 //继承以修改，显示的时候的合适位置
@@ -120,6 +127,11 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
     return CGRectMake(0, 0, containerFrame.size.width, containerFrame.size.height);
 }
 
+
+- (void)didTappedDimmingViewWithGesture:(UITapGestureRecognizer*)tapGesture
+{
+    //可以啥都不做
+}
 
 #pragma mark - Interactive
 - (void)ml_validatePanGesturePresent

@@ -21,10 +21,18 @@ static NSInteger const kDimmingViewTag = 1024;
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    [super animateTransition:transitionContext];
+    
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *fromView = fromVC.view;
-    UIView *toView = toVC.view;
+    UIView *fromView,*toView;
+    if ([transitionContext respondsToSelector:@selector(viewForKey:)]) {
+        fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+        toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    }
+    fromView = fromView?fromView:fromVC.view;
+    toView = toView?toView:toVC.view;
+    
     UIView *containerView = [transitionContext containerView];
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -43,6 +51,10 @@ static NSInteger const kDimmingViewTag = 1024;
             dimmingView.alpha = 0.01;
             dimmingView.tag = kDimmingViewTag;
             
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:presentedViewController action:@selector(didTappedDimmingViewWithGesture:)];
+            dimmingView.userInteractionEnabled = YES;
+            [dimmingView addGestureRecognizer:tapGesture];
+            
             [containerView addSubview:dimmingView];
         }
         
@@ -60,12 +72,12 @@ static NSInteger const kDimmingViewTag = 1024;
     if (self.isForPresent) {
         [self moveViewWithX:self.isReverse?containerView.frameWidth/2:-containerView.frameWidth/2 forView:presentedView withMaxFeatRangle:maxFeatAngle andFeatContainerView:containerView];
         
-        //弹簧在交互里有BUG，这是UIKit的BUG
+        //sorry, spring animator is not allowed
 //        [UIView animateWithDuration:0.5f delay:0.0f usingSpringWithDamping:0.8f initialSpringVelocity:0.6f options:UIViewAnimationOptionCurveEaseIn animations:^{
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             [self moveViewWithX:0 forView:presentedView withMaxFeatRangle:maxFeatAngle andFeatContainerView:containerView];
             
-            dimmingView.alpha = 0.5;
+            dimmingView.alpha = 0.35f;
         } completion:^(BOOL finished) {
 //            NSLog(@"animator present end");
             presentedView.transform = CGAffineTransformIdentity;
