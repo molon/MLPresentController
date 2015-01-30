@@ -9,6 +9,7 @@
 #import "PresentedViewController2.h"
 #import "UIView+convenience.h"
 #import "MLPresentController.h"
+#import "MLSlidePresentControllerAnimator.h"
 
 @interface PresentedViewController2 ()
 
@@ -52,15 +53,18 @@
     self.button.frame = [self.view midFrameWithHeight:30 width:120];
 }
 
-//- (CGRect)ml_preferredFrameForPresentedWithContainerFrame:(CGRect)containerFrame
-//{
-//    return CGRectInset(containerFrame, 0, 100);
-//}
+- (CGRect)ml_preferredFrameForPresentedWithContainerFrame:(CGRect)containerFrame
+{
+    return CGRectInset(containerFrame, 20, 150);
+}
 
 #pragma mark - event
 - (void)dismiss
 {
-    [self ml_dismissViewControllerWithCompletion:nil];
+    MLSlidePresentControllerAnimator *animator = [MLSlidePresentControllerAnimator new];
+    animator.isForPresent = NO;
+    
+    [self ml_dismissViewControllerWithAnimator:animator completion:nil];
 }
 
 - (void)didTappedDimmingViewWithGesture:(UITapGestureRecognizer *)tapGesture

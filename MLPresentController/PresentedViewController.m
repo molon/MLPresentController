@@ -10,6 +10,7 @@
 #import "MLPresentController.h"
 #import "UIView+Convenience.h"
 #import "PresentedViewController2.h"
+#import "MLSlidePresentControllerAnimator.h"
 
 @interface PresentedViewController ()<MLPresentControllerPanDedelagte>
 
@@ -94,7 +95,11 @@
 - (void)presentVC2
 {
     PresentedViewController2 *vc = [PresentedViewController2 new];
-    [self ml_presentViewController:vc completion:nil];
+    
+    MLSlidePresentControllerAnimator *animator = [MLSlidePresentControllerAnimator new];
+    animator.isForPresent = YES;
+    
+    [self ml_presentViewController:vc animator:animator completion:nil];
 }
 
 - (void)dismissWithInteractiving:(BOOL)interactiving
