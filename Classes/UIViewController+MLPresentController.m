@@ -104,7 +104,7 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
     
     viewControllerToPresent.transitioningDelegate = pc;
     viewControllerToPresent.modalPresentationStyle = UIModalPresentationCustom;
-
+    
     //这里在iOS7下需要设置为custom
     if (IOS_VERSION_MLPRESENTCONTROLLER<8.0) {
         pc.currentPresentingViewController = viewControllerToPresent.presentingViewController;
@@ -112,9 +112,9 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
         pc.recordModalPresentationStyleOfPresenting = viewControllerToPresent.presentingViewController.modalPresentationStyle;
         pc.currentPresentingViewController.modalPresentationStyle = UIModalPresentationCustom;
         
-//        if ([pc.currentPresentingViewController.view isKindOfClass:[MLPresentView class]]) {
-//            ((MLPresentView*)pc.currentPresentingViewController.view).ignoreSetFrame = YES;
-//        }
+        //        if ([pc.currentPresentingViewController.view isKindOfClass:[MLPresentView class]]) {
+        //            ((MLPresentView*)pc.currentPresentingViewController.view).ignoreSetFrame = YES;
+        //        }
         pc.currentPresentingViewController.view.ignoreSetFrame = YES;
     }
     
@@ -177,15 +177,16 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
     if (recognizer.state == UIGestureRecognizerStateBegan&&![self.transitionCoordinator isAnimated]) {
         if ([recognizer velocityInView:view].x>0) {
             if ([self ml_panGestureBeginFromLeft]) {
-                
                 NSAssert([self.transitionCoordinator isAnimated], @"必须执行animate的present或者dismiss方法");
                 MLPresentControllerAnimator *animator = [MLPresentController sharedInstance].animator;
                 NSAssert(animator.isForInteractiving, @"必须给予可交互动画对象");
                 
-                [MLPresentController sharedInstance].currentPanDirection = MLPresentControllerPanDirectionFromLeft;
-                [MLPresentController sharedInstance].isInteractiving = YES;
-                
-//                DLOG(@"FromLeft present %p",self);
+                if ([self.transitionCoordinator isAnimated]&&animator.isForInteractiving) {
+                    [MLPresentController sharedInstance].currentPanDirection = MLPresentControllerPanDirectionFromLeft;
+                    [MLPresentController sharedInstance].isInteractiving = YES;
+                    
+                    //                DLOG(@"FromLeft present %p",self);
+                }
                 
                 return;
             }
@@ -196,10 +197,12 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
                 MLPresentControllerAnimator *animator = [MLPresentController sharedInstance].animator;
                 NSAssert(animator.isForInteractiving, @"必须给予可交互动画对象");
                 
-                [MLPresentController sharedInstance].currentPanDirection = MLPresentControllerPanDirectionFromRight;
-                [MLPresentController sharedInstance].isInteractiving = YES;
-                
-//                DLOG(@"FromRight present %p",self);
+                if ([self.transitionCoordinator isAnimated]&&animator.isForInteractiving) {
+                    [MLPresentController sharedInstance].currentPanDirection = MLPresentControllerPanDirectionFromRight;
+                    [MLPresentController sharedInstance].isInteractiving = YES;
+                    
+                    //                DLOG(@"FromRight present %p",self);
+                }
                 return;
             }
         }
