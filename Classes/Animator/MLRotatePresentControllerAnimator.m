@@ -130,10 +130,10 @@ static NSInteger const kDimmingViewTag = 1024;
     
     CGFloat halfViewWidth = (CGRectGetWidth(view.frame)/2);
     
+    NSAssert([view.window isEqual:containerView.window], @"containerView和view必须在同一window里");
     
     CGRect inFrame = [view convertRect:view.bounds toView:containerView];
-    NSAssert(!CGRectEqualToRect(inFrame, CGRectZero), @"containerView和view必须在同一坐标系里");
-    NSAssert(inFrame.origin.x>=0&&inFrame.origin.x+inFrame.size.width<=containerView.frame.size.width, @"containerView和view必须在同一坐标系里");
+    NSAssert(!CGRectEqualToRect(inFrame, CGRectZero), @"view大小不能等于CGRectZero");
     
     //判断下左右空间哪个小点。取小的空间宽度+view宽度一半
     CGFloat containerExtraWidth = halfViewWidth;
