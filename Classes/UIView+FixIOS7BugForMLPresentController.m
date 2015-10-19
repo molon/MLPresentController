@@ -9,7 +9,7 @@
 #import "UIView+FixIOS7BugForMLPresentController.h"
 #import <objc/runtime.h>
 
-NSString * const kIgnoreSetFrameKeyOfFixIOS7BugForMLPresentController = @"com.molon.UIView.kIgnoreSetFrameKeyOfFixIOS7BugForMLPresentController";
+static char ignoreSetFrameKey;
 
 //静态就交换静态，实例方法就交换实例方法
 void Swizzle_FixIOS7BugForMLPresentController(Class c, SEL origSEL, SEL newSEL)
@@ -42,14 +42,16 @@ void Swizzle_FixIOS7BugForMLPresentController(Class c, SEL origSEL, SEL newSEL)
 
 - (BOOL)ignoreSetFrame
 {
-    return [objc_getAssociatedObject(self, &kIgnoreSetFrameKeyOfFixIOS7BugForMLPresentController) boolValue] ;
+    return [objc_getAssociatedObject(self, &ignoreSetFrameKey) boolValue] ;
 }
 
 - (void)setIgnoreSetFrame:(BOOL)ignoreSetFrame
 {
-    [self willChangeValueForKey:kIgnoreSetFrameKeyOfFixIOS7BugForMLPresentController];
-    objc_setAssociatedObject(self, &kIgnoreSetFrameKeyOfFixIOS7BugForMLPresentController, @(ignoreSetFrame), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self willChangeValueForKey:kIgnoreSetFrameKeyOfFixIOS7BugForMLPresentController];
+    static NSString * key = @"ignoreSetFrame";
+    
+    [self willChangeValueForKey:key];
+    objc_setAssociatedObject(self, &ignoreSetFrameKey, @(ignoreSetFrame), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self didChangeValueForKey:key];
 }
 
 - (void)__MLPresentController__hookSetFrame:(CGRect)frame
