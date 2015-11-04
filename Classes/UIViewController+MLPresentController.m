@@ -14,7 +14,7 @@
 #import <objc/runtime.h>
 #import "UIView+FixIOS7BugForMLPresentController.h"
 
-NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPresentController.kInteractivePresentPanGestureRecognizerKey";
+static char interactivePresentPanGestureRecognizerKey;
 
 @interface UIViewController()
 
@@ -149,14 +149,16 @@ NSString * const kInteractivePresentPanGestureRecognizerKey = @"com.molon.MLPres
 
 - (UIPanGestureRecognizer *)interactivePresentPanGestureRecognizer
 {
-    return objc_getAssociatedObject(self, &kInteractivePresentPanGestureRecognizerKey);
+    return objc_getAssociatedObject(self, &interactivePresentPanGestureRecognizerKey);
 }
 
 - (void)setInteractivePresentPanGestureRecognizer:(UIPanGestureRecognizer *)interactivePresentPanGestureRecognizer
 {
-    [self willChangeValueForKey:kInteractivePresentPanGestureRecognizerKey];
-    objc_setAssociatedObject(self, &kInteractivePresentPanGestureRecognizerKey, interactivePresentPanGestureRecognizer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self willChangeValueForKey:kInteractivePresentPanGestureRecognizerKey];
+    static NSString * key = @"interactivePresentPanGestureRecognizer";
+    
+    [self willChangeValueForKey:key];
+    objc_setAssociatedObject(self, &interactivePresentPanGestureRecognizerKey, interactivePresentPanGestureRecognizer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self didChangeValueForKey:key];
 }
 
 - (BOOL)ml_panGestureBeginFromLeft
