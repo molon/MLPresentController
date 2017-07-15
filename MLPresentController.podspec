@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "MLPresentController"
-s.version      = "1.2.0"
+s.version      = "1.2.1"
 s.summary      = "Present ViewController with custom animator and support interactiving with UIPanGestureRecognizer. (iOS 7+)"
 
 s.homepage     = 'https://github.com/molon/MLPresentController'
